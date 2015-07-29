@@ -69,26 +69,7 @@ public class MainActivity extends ActionBarActivity implements TestInterface {
         BeanFactory.registerBean(TEST_BEAN, this);
         testInterface = BeanFactory.getBean(TEST_BEAN);
         if (testInterface != null) {
-//            String kk = null;
-//            try {
-//                JSONObject o = new JSONObject();
-//                o.put("code", 200);
-//                o.put("msg", "读取菜单数据成功");
-//                JSONObject ee = new JSONObject();
-//                ee.put("boughtItems", 1);
-//                ee.put("goldenTree", 1);
-//                ee.put("salerCenter", 1);
-//                ee.put("myTaobao", 1);
-//                ee.put("plugins", 1);
-//
-//                o.put("data", ee);
-//                kk = o.toString();
-//
-//            } catch (JSONException e) {
-//                e.printStackTrace();
-//            }
-            String kk = "\"{\"code\":200,\"msg\":\"读取菜单数据成功\",\"data\":{\"boughtItems\":1,\"goldenTree\":1,\"salerCenter\":1,\"myTaobao\":1,\"plugins\":1}}\"";
-
+            String kk = "{\"code\":200,\"msg\":\"读取菜单数据成功\",\"data\":{\"boughtItems\":1,\"goldenTree\":1,\"salerCenter\":1,\"myTaobao\":1,\"plugins\":1}}";
             testInterface.callTest(kk);
         }
 

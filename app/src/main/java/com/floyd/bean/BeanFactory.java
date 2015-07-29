@@ -21,6 +21,23 @@ public class BeanFactory {
         mBeanCustomer = beanCustomer;
     }
 
+    public static synchronized void registerBean(String beanName, Class<? extends Bean> clazz) {
+        if (clazz == null) {
+            return;
+        }
+
+        Bean bean = null;
+        try {
+            bean = clazz.newInstance();
+        } catch (InstantiationException e) {
+            Log.i(TAG, "clazz:" + clazz + " instance cause error:" + e.getMessage());
+        } catch (IllegalAccessException e) {
+            Log.i(TAG, "clazz:" + clazz + " instance cause error:" + e.getMessage());
+        }
+
+        registerBean(beanName, bean);
+    }
+
     public static synchronized void registerBean(String beanName, Bean bean) {
         Log.i(TAG, "registerBean with beanName:" + beanName);
         if (mBeanCustomer != null && mBeanCustomer.customBean(beanName, beanCache)) {
